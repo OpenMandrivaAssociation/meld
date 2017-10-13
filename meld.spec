@@ -1,22 +1,31 @@
-Summary:    A visual diff and merge tool targeted at developers
-Name:       meld
-Version:    3.16.3
-Release:    1
-Source0:    https://download.gnome.org/sources/%{name}/3.16/%{name}-%{version}.tar.xz
-License:    GPLv2+
-URL:        http://meldmerge.org/
-Group:      File tools
-BuildArch:  noarch
+%define shortver 3.18
 
-BuildRequires:  pkgconfig(python2)
-BuildRequires:  intltool
-BuildRequires:  itstool
-BuildRequires:  libxml2-utils
-BuildRequires:  desktop-file-utils
+Summary:	A visual diff and merge tool targeted at developers
+Name:		meld
+Version:	%{shortver}.0
+Release:	1
+Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
+License:	GPLv2+
+URL:		http://meldmerge.org/
+Group:		File tools
+BuildArch:	noarch
 
-Requires:  pygtk2.0
-Requires:  python2-gtksourceview
-Requires:  python2-gobject
+BuildRequires:	pkgconfig(python)
+BuildRequires:	intltool
+BuildRequires:	itstool
+BuildRequires:	libxml2-utils
+BuildRequires:	desktop-file-utils
+
+Requires:	dbus-x11
+Requires:	glib2
+Requires:	%{_lib}gtk3_0
+Requires:	gtksourceview3
+Requires:	python-dbus
+Requires:	python-gobject
+Requires:	python-cairo
+Requires:	python-gi-cairo
+Requires:	patch
+Requires:	%{name}-schemas = %{version}-%{release}
 
 %description
 Meld is a visual diff and merge tool targeted at developers. Meld helps you
@@ -27,32 +36,53 @@ many version control systems including Git, Mercurial, Bazaar and Subversion.
 Meld helps you review code changes, understand patches, and makes enormous
 merge conflicts slightly less painful.
 
-%files -f %name.lang -f FILELIST
+%files -f %{name}.lang
+%{_bindir}/%{name}
+%dir %{py3_puresitedir}/%{name}
+%{py3_puresitedir}/%{name}/*
+%{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/*
+%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/%{name}*
+%{_iconsdir}/hicolor/*/actions/%{name}*
+%{_iconsdir}/HighContrast/*/apps/%{name}*
+%{_datadir}/mime/packages/%{name}.xml
+%{_mandir}/man1/%{name}.1*
 %doc README NEWS COPYING
+
+#---------------------------------------------------------------------------
+
+%package schemas
+Summary:	Gsettings schema files for %{name}
+License:	GPLv2+
+Group:		File tools
+BuildArch:	noarch
+
+%description schemas
+This package provides the gsettings schemas for %{name}.
+
+%files schemas
+%{_datadir}/glib-2.0/schemas/org.gnome.*.gschema.xml
+
+#---------------------------------------------------------------------------
 
 %prep
 %setup -q
 
 %build
-%{__python2} setup.py build
+%{__python} setup.py build
 
 %install
-%{__python2} setup.py --no-compile-schemas --no-update-icon-cache install --root=%{buildroot} --record=FILELIST
+%{__python} setup.py --no-compile-schemas --no-update-icon-cache install --root=%{buildroot}
 
-# remove duplicates (by rpm5 point of view) from FILELIST
-# (see http://wiki.rosalab.ru/ru/index.php/Python_policy#Automated_setup)
-sed -i -e /pyc$/d FILELIST
-
-# manpage uses xz compression
-sed -i -e 's|%{name}.1|%{name}.1.xz|' FILELIST
-
-# .desktop
-desktop-file-install \
-  --vendor="" \
-  --remove-category="Application" \
-  --dir %{buildroot}%{_datadir}/applications \
-  %{buildroot}%{_datadir}/applications/*
+# remove versioned doc directory
+rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
 
 # locales
 %find_lang %{name} --with-gnome
+
+%check
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
