@@ -2,7 +2,7 @@
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	%{shortver}.0
+Version:	%{shortver}.3
 Release:	1
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
