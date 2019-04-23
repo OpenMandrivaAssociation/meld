@@ -1,8 +1,8 @@
-%define shortver 3.18
+%define shortver 3.20
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	%{shortver}.3
+Version:	%{shortver}.1
 Release:	1
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -25,6 +25,7 @@ Requires:	python-gobject
 Requires:	python-cairo
 Requires:	python-gi-cairo
 Requires:	patch
+Requires:	typelib(GtkSource) 
 Requires:	%{name}-schemas = %{version}-%{release}
 
 %description
@@ -43,14 +44,12 @@ merge conflicts slightly less painful.
 %{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/appdata/%{name}.appdata.xml
-%{_datadir}/applications/%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}*
-%{_iconsdir}/hicolor/*/actions/%{name}*
-%{_iconsdir}/HighContrast/*/apps/%{name}*
-%{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
+%{_datadir}/applications/org.gnome.%{name}.desktop
+%{_iconsdir}/*/*/*/
+%{_datadir}/mime/packages/org.gnome.%{name}.xml
 %{_mandir}/man1/%{name}.1*
-%doc README NEWS COPYING
+%doc NEWS COPYING
 
 #---------------------------------------------------------------------------
 
@@ -83,6 +82,6 @@ rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
 # locales
 %find_lang %{name} --with-gnome
 
-%check
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+#check
+#desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
