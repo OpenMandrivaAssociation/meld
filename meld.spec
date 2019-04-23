@@ -43,12 +43,12 @@ merge conflicts slightly less painful.
 %{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/appdata/%{name}.appdata.xml
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
+%{_datadir}/applications/org.gnome.%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_iconsdir}/hicolor/*/actions/%{name}*
 %{_iconsdir}/HighContrast/*/apps/%{name}*
-%{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/mime/packages/org.gnome.%{name}.xml
 %{_mandir}/man1/%{name}.1*
 %doc README NEWS COPYING
 
