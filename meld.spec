@@ -25,6 +25,7 @@ Requires:	python-gobject
 Requires:	python-cairo
 Requires:	python-gi-cairo
 Requires:	patch
+Requires:	typelib(GtkSource) 
 Requires:	%{name}-schemas = %{version}-%{release}
 
 %description
@@ -45,12 +46,10 @@ merge conflicts slightly less painful.
 %{_datadir}/%{name}/*
 %{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
 %{_datadir}/applications/org.gnome.%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}*
-%{_iconsdir}/hicolor/*/actions/%{name}*
-%{_iconsdir}/HighContrast/*/apps/%{name}*
+%{_iconsdir}/*/*/*/
 %{_datadir}/mime/packages/org.gnome.%{name}.xml
 %{_mandir}/man1/%{name}.1*
-%doc README NEWS COPYING
+%doc NEWS COPYING
 
 #---------------------------------------------------------------------------
 
