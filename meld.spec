@@ -83,6 +83,6 @@ rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
 # locales
 %find_lang %{name} --with-gnome
 
-%check
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+#check
+#desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
