@@ -3,8 +3,9 @@
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
 Version:	%{shortver}.1
-Release:	1
+Release:	2
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
+Patch0:   0001-Update-build-helpers-for-Python-3.8-compatibility-32.patch
 License:	GPLv2+
 URL:		http://meldmerge.org/
 Group:		File tools
@@ -15,6 +16,7 @@ BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
+BuildRequires:	python3dist(distro)
 
 Requires:	dbus-x11
 Requires:	glib2
@@ -69,6 +71,7 @@ This package provides the gsettings schemas for %{name}.
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %{__python} setup.py build
