@@ -2,10 +2,9 @@
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	%{shortver}.1
-Release:	2
+Version:	%{shortver}.2
+Release:	1
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
-Patch0:   0001-Update-build-helpers-for-Python-3.8-compatibility-32.patch
 License:	GPLv2+
 URL:		http://meldmerge.org/
 Group:		File tools
