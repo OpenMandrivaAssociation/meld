@@ -42,7 +42,7 @@ merge conflicts slightly less painful.
 %{_bindir}/%{name}
 %dir %{py3_puresitedir}/%{name}
 %{py3_puresitedir}/%{name}/*
-%{py3_puresitedir}/%{name}-%{version}-py3.?.egg-info
+%{py3_puresitedir}/%{name}-%{version}-py*.*.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 %{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
