@@ -16,6 +16,7 @@ BuildRequires:	itstool
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	python3dist(distro)
+BuildRequires:  pkgconfig(glib-2.0)
 
 Requires:	dbus-x11
 Requires:	glib2
