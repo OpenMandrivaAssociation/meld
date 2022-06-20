@@ -1,9 +1,9 @@
-%define shortver 3.20
+%define shortver 3.21
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	%{shortver}.4
-Release:	2
+Version:	%{shortver}.2
+Release:	1
 Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 URL:		http://meldmerge.org/
@@ -16,6 +16,7 @@ BuildRequires:	itstool
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	python3dist(distro)
+BuildRequires:  pkgconfig(glib-2.0)
 
 Requires:	dbus-x11
 Requires:	glib2
