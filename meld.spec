@@ -22,6 +22,7 @@ BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(gtksourceview-4)
 BuildRequires:  pkgconfig(pygobject-3.0)
+BuildRequires:  pkgconfig(py3cairo)
 
 Requires:	dbus-x11
 Requires:	glib2
