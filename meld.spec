@@ -27,7 +27,7 @@ BuildRequires:  pkgconfig(py3cairo)
 Requires:	dbus-x11
 Requires:	glib2
 Requires:	%{_lib}gtk3_0
-Requires:	gtksourceview4
+Requires:	gtksourceview
 Requires:	python-dbus
 Requires:	python-gobject
 Requires:	python-cairo
