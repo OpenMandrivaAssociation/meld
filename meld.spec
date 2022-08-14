@@ -49,13 +49,12 @@ merge conflicts slightly less painful.
 %{_bindir}/%{name}
 %dir %{py3_puresitedir}/%{name}
 %{py3_puresitedir}/%{name}/*
-#{py3_puresitedir}/%{name}-%{version}-py*.*.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-#{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
-#{_datadir}/applications/org.gnome.%{name}.desktop
+%{_datadir}/metainfo/org.gnome.Meld.appdata.xml
+%{_datadir}/applications/org.gnome.Meld.desktop
 %{_iconsdir}/*/*/*/
-#{_datadir}/mime/packages/org.gnome.%{name}.xml
+%{_datadir}/mime/packages/org.gnome.Meld.xml
 %{_mandir}/man1/%{name}.1*
 %doc NEWS COPYING
 
