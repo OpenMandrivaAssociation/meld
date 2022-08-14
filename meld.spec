@@ -20,11 +20,12 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	python3dist(distro)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gtksourceview-4)
 
 Requires:	dbus-x11
 Requires:	glib2
 Requires:	%{_lib}gtk3_0
-Requires:	gtksourceview3
+Requires:	gtksourceview4
 Requires:	python-dbus
 Requires:	python-gobject
 Requires:	python-cairo
