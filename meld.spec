@@ -10,6 +10,7 @@ URL:		http://meldmerge.org/
 Group:		File tools
 BuildArch:	noarch
 
+BuildRequires:  cmake
 BuildRequires:  meson
 BuildRequires:	pkgconfig(python)
 BuildRequires:	intltool
@@ -18,6 +19,7 @@ BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	python3dist(distro)
 BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-3.0)
 
 Requires:	dbus-x11
 Requires:	glib2
