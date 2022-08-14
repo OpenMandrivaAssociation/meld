@@ -10,6 +10,7 @@ URL:		http://meldmerge.org/
 Group:		File tools
 BuildArch:	noarch
 
+BuildRequires:  meson
 BuildRequires:	pkgconfig(python)
 BuildRequires:	intltool
 BuildRequires:	itstool
@@ -74,10 +75,11 @@ This package provides the gsettings schemas for %{name}.
 %autopatch -p1
 
 %build
-%{__python} setup.py build
+%meson
+%meson_build
 
 %install
-%{__python} setup.py --no-compile-schemas --no-update-icon-cache install --root=%{buildroot}
+%meson_install
 
 # remove versioned doc directory
 rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
