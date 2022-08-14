@@ -10,6 +10,8 @@ URL:		http://meldmerge.org/
 Group:		File tools
 BuildArch:	noarch
 
+BuildRequires:  cmake
+BuildRequires:  meson
 BuildRequires:	pkgconfig(python)
 BuildRequires:	intltool
 BuildRequires:	itstool
@@ -17,11 +19,15 @@ BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:	python3dist(distro)
 BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  pkgconfig(gtksourceview-4)
+BuildRequires:  pkgconfig(pygobject-3.0)
+BuildRequires:  pkgconfig(py3cairo)
 
 Requires:	dbus-x11
 Requires:	glib2
 Requires:	%{_lib}gtk3_0
-Requires:	gtksourceview3
+Requires:	gtksourceview4
 Requires:	python-dbus
 Requires:	python-gobject
 Requires:	python-cairo
@@ -43,13 +49,12 @@ merge conflicts slightly less painful.
 %{_bindir}/%{name}
 %dir %{py3_puresitedir}/%{name}
 %{py3_puresitedir}/%{name}/*
-%{py3_puresitedir}/%{name}-%{version}-py*.*.egg-info
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/metainfo/org.gnome.%{name}.appdata.xml
-%{_datadir}/applications/org.gnome.%{name}.desktop
+%{_datadir}/metainfo/org.gnome.Meld.appdata.xml
+%{_datadir}/applications/org.gnome.Meld.desktop
 %{_iconsdir}/*/*/*/
-%{_datadir}/mime/packages/org.gnome.%{name}.xml
+%{_datadir}/mime/packages/org.gnome.Meld.xml
 %{_mandir}/man1/%{name}.1*
 %doc NEWS COPYING
 
@@ -74,10 +79,11 @@ This package provides the gsettings schemas for %{name}.
 %autopatch -p1
 
 %build
-%{__python} setup.py build
+%meson
+%meson_build
 
 %install
-%{__python} setup.py --no-compile-schemas --no-update-icon-cache install --root=%{buildroot}
+%meson_install
 
 # remove versioned doc directory
 rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
