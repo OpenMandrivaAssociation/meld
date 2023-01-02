@@ -1,10 +1,10 @@
-%define shortver 3.21
+%define shortver %(echo %version |cut -d\. -f1-2)
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	3.21.3
+Version:	3.22.0
 Release:	1
-Source0:	https://download.gnome.org/sources/%{name}/%{shortver}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/meld/%{shortver}/%{name}-%{version}.tar.xz
 License:	GPLv2+
 URL:		http://meldmerge.org/
 Group:		File tools
@@ -75,8 +75,7 @@ This package provides the gsettings schemas for %{name}.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %meson
@@ -90,7 +89,4 @@ rm -fr %{buildroot}%{_docdir}/%{name}-%{version}/
 
 # locales
 %find_lang %{name} --with-gnome
-
-#check
-#desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
