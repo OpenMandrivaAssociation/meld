@@ -4,7 +4,9 @@ Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
 Version:	3.22.0
 Release:	1
-Source0:	https://download.gnome.org/sources/meld/%{shortver}/%{name}-%{version}.tar.xz
+# Use source from gitlab so auto builder can handle it
+#Source0:	https://download.gnome.org/sources/meld/%{shortver}/%{name}-%{version}.tar.xz
+Source0:	https://gitlab.gnome.org/GNOME/meld/-/archive/%{version}/%{name}-%{version}.tar.bz2
 License:	GPLv2+
 URL:		http://meldmerge.org/
 Group:		File tools
