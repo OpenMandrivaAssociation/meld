@@ -2,8 +2,8 @@
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	3.22.2
-Release:	2
+Version:	3.22.3
+Release:	1
 # Use source from gitlab so auto builder can handle it
 #Source0:	https://download.gnome.org/sources/meld/%{shortver}/%{name}-%{version}.tar.xz
 Source0:	https://gitlab.gnome.org/GNOME/meld/-/archive/%{version}/%{name}-%{version}.tar.bz2
