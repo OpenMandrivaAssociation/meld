@@ -2,8 +2,8 @@
 
 Summary:	A visual diff and merge tool targeted at developers
 Name:		meld
-Version:	3.22.3
-Release:	2
+Version:	3.23.0
+Release:	1
 # Use source from gitlab so auto builder can handle it
 #Source0:	https://download.gnome.org/sources/meld/%{shortver}/%{name}-%{version}.tar.xz
 Source0:	https://gitlab.gnome.org/GNOME/meld/-/archive/%{version}/%{name}-%{version}.tar.bz2
@@ -58,6 +58,7 @@ merge conflicts slightly less painful.
 %{_datadir}/applications/org.gnome.Meld.desktop
 %{_iconsdir}/*/*/*/
 %{_datadir}/mime/packages/org.gnome.Meld.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.Meld.gschema.xml
 %{_mandir}/man1/%{name}.1*
 %doc NEWS COPYING
 
