@@ -54,7 +54,7 @@ merge conflicts slightly less painful.
 %{py3_puresitedir}/%{name}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/metainfo/org.gnome.Meld.appdata.xml
+%{_datadir}/metainfo/org.gnome.Meld.metainfo.xml
 %{_datadir}/applications/org.gnome.Meld.desktop
 %{_iconsdir}/*/*/*/
 %{_datadir}/mime/packages/org.gnome.Meld.xml
